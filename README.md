@@ -1,6 +1,6 @@
 <p align="center">
 	<font color="red"><h1 align="center">
-		SplitSides job by GRZ
+		SplitSides job by GRZ COMING SOON
 	</h1></font>
 	<p align="center">
 		<img width="420" height="237" src="https://cdn.discordapp.com/attachments/672192669249961995/702795661619363930/SSWest-GTAV.jpg">
