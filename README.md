@@ -1,6 +1,6 @@
 <p align="center">
 	<font color="red"><h1 align="center">
-		SplitSides job by GRZ COMING SOON
+		SplitSides job by GRZ
 	</h1></font>
 	<p align="center">
 		<img width="420" height="237" src="https://cdn.discordapp.com/attachments/672192669249961995/702795661619363930/SSWest-GTAV.jpg">
@@ -34,7 +34,6 @@
 
 - Informations:
 	- Auto job restart on server lag
-	- 2 languages available (French, English)
 	- Compatible with the new artifax server 
 	- ESX original job remade by GRZ
 	- GPS to blip for items
@@ -90,10 +89,76 @@
 
 
 
-## License, Credits and Thanks
+### License, Credits and Thanks
 
 - This project is licensed under the [MIT License](https://github.com/tabarra/txAdmin/blob/master/LICENSE).
 - Everything was made by me, all the menu was made by a friend. Thanks to him again.
 
 Enjoy :)
+
+
+
+
+
+
+## How to add more shops in job:
+
+#### Edit client/main.lua ->
+
+- Try to find the line  670 and add this line
+<pre>
+    <code>
+    {label = 'LABEL NAME HERE',            value = 'gpsLABEL'},
+    </code>
+</pre>
+- Try now to find the line  691 and add this line
+<pre>
+    <code>
+    if data.current.value == 'gpsLABEL' then
+			x, y, z = Config.LABEL.x, Config.LABEL.y, Config.LABEL.z
+			SetNewWaypoint(x, y, z)
+			local source = GetPlayerServerId();
+			ESX.ShowAdvancedNotification('Split Sides', 'Ajout du point sur le GPS', '', 'CHAR_ALL_PLAYERS_CONF', 1)
+    end
+    </code>
+</pre>
+
+
+- Try now to find the line  1201 and add this line after " zone == 'Food' "
+<pre>
+    <code>
+    or zone == 'LABEL'
+    </code>
+</pre>
+
+#### Edit config.lua ->
+
+- Try to find the line  39 and add this line
+    - Don't forget to change the position X,Y,Z
+<pre>
+    <code>
+    Config.LABEL = {x = POS.pos, y = POS.pos, z = POS.pos} -- Shop 5 
+    </code>
+</pre>
+
+- Try now to find the line  691 and add this line
+<pre>
+    <code>
+    LABEL = {
+        Name  = "LABEL shop",
+        Pos   = { x = -2955.242, y = 385.897, z = 14.041 }, -- CHANGE SAME POSITION OF SHOP 5
+        Size  = { x = 1.6, y = 1.6, z = 1.0 },
+        Color = { r = 238, g = 0, b = 0 },
+        Type  = 23,
+        Items = {
+            { name = 'item_name',      label = 'item_label',   price = 5 },
+            { name = 'item_name',    label = 'item_label', price = 5 }
+        },
+    },
+    </code>
+</pre>
+
+# Here you go :)
+
+
 
